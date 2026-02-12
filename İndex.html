@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pundikpundik</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  height:100vh;
+  background:#000;
+  overflow:hidden;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#fff;
+}
+
+/* Arka plan */
+.container{
+  position:relative;
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle,#2a001f 0%,#000 70%);
+}
+
+/* Yazılar */
+.top-text{
+  position:absolute;
+  top:40px;
+  font-size:28px;
+  font-weight:bold;
+  color:#ff9edc;
+  text-shadow:0 0 20px #ff4da6;
+}
+
+.bottom-text{
+  position:absolute;
+  bottom:40px;
+  font-size:42px;
+  font-weight:900;
+  color:#ff9edc;
+  text-shadow:0 0 30px #ff4da6;
+}
+
+/* Kalp yağmuru */
+.heart{
+  position:absolute;
+  top:-20px;
+  color:#ff8bd8;
+  font-size:18px;
+  animation:fall linear infinite;
+  opacity:.8;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* OYUN ALANI */
+.game{
+  position:relative;
+  width:90%;
+  max-width:700px;
+  height:220px;
+  border-bottom:4px solid #ff4da6;
+  overflow:hidden;
+}
+
+/* Karakter */
+.player{
+  position:absolute;
+  bottom:0;
+  left:80px;
+  width:40px;
+  height:40px;
+  background:#ff9edc;
+  box-shadow:0 0 15px #ff4da6;
+}
+
+/* Engel */
+.obstacle{
+  position:absolute;
+  bottom:0;
+  right:-40px;
+  width:40px;
+  height:40px;
+  background:#fff;
+  box-shadow:0 0 10px #ff4da6;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="top-text">bekliycen</div>
+
+  <!-- OYUN -->
+  <div class="game" id="game">
+    <div class="player" id="player"></div>
+  </div>
+
+  <div class="bottom-text">pundik yermisin?</div>
+
+</div>
+
+<script>
+/* KALP YAĞMURU */
+function rain(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💗";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(Math.random()*4+5)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),9000);
+}
+setInterval(rain,120);
+
+/* OYUN MEKANİK */
+const player=document.getElementById("player");
+const game=document.getElementById("game");
+
+let jumping=false;
+let velocity=0;
+let gravity=0.8;
+let position=0;
+
+/* Zıplama */
+function jump(){
+  if(jumping) return;
+  jumping=true;
+  velocity=14;
+}
+
+document.addEventListener("click",jump);
+document.addEventListener("touchstart",jump);
+
+/* Engel üret */
+function createObstacle(){
+  const obs=document.createElement("div");
+  obs.className="obstacle";
+  game.appendChild(obs);
+
+  let x=game.offsetWidth;
+
+  function move(){
+    x-=6;
+    obs.style.left=x+"px";
+
+    /* Çarpışma */
+    const pRect=player.getBoundingClientRect();
+    const oRect=obs.getBoundingClientRect();
+
+    if(
+      pRect.right>oRect.left &&
+      pRect.left<oRect.right &&
+      pRect.bottom>oRect.top
+    ){
+      alert("Çarptın 😿 Ama oyun sonsuz devam");
+    }
+
+    if(x<-40){
+      obs.remove();
+    }else{
+      requestAnimationFrame(move);
+    }
+  }
+  move();
+}
+
+setInterval(createObstacle,1800);
+
+/* Fizik */
+function update(){
+  velocity-=gravity;
+  position+=velocity;
+
+  if(position<=0){
+    position=0;
+    jumping=false;
+  }
+
+  player.style.bottom=position+"px";
+  requestAnimationFrame(update);
+}
+update();
+</script>
+
+</body>
+</html>
