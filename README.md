@@ -1,1 +1,0 @@
-# 7.sinif-fen-bilgileri
