@@ -1,290 +1,250 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML5 ★ MOBİLE DESK</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Öğrenme Egzersizleri • Telefon Uyumlu</title>
   
   <style>
     :root {
-      --primary: #ff3366;
-      --dark: #0f0f1a;
-      --light: #f8f9fa;
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --accent: #58a6ff;
+      --card: #161b22;
+      --border: #30363d;
     }
-    
+
     * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: linear-gradient(135deg, #0f0f1a 0%, #1a0033 100%);
-      color: var(--light);
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      padding: 1rem;
     }
-    
+
     header {
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(10px);
-      padding: 1.2rem 5%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,51,102,0.3);
-    }
-    
-    h1 {
-      margin: 0.4rem 0;
-      font-size: 1.8rem;
       text-align: center;
-      color: var(--primary);
+      padding: 1.5rem 0 2rem;
     }
-    
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
+
+    h1 {
+      font-size: 1.9rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
     }
-    
-    nav a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.7rem 1.1rem;
-      border-radius: 999px;
-      background: rgba(255,51,102,0.08);
-      transition: all 0.25s;
-      font-size: 0.95rem;
-    }
-    
-    nav a:hover {
-      background: rgba(255,51,102,0.25);
-    }
-    
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 4%;
-    }
-    
-    .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,51,102,0.18);
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      backdrop-filter: blur(6px);
-    }
-    
+
     h2 {
-      color: var(--primary);
-      margin-top: 0;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin: 2rem 0 1rem;
+      border-left: 5px solid var(--accent);
+      padding-left: 0.8rem;
     }
-    
+
     h3 {
-      color: #ff88aa;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
+      margin: 1.4rem 0 0.6rem;
     }
-    
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.3rem;
+      margin: 1.2rem 0;
+    }
+
     code {
-      background: rgba(0,0,0,0.4);
-      padding: 0.2rem 0.5rem;
+      background: #0d1117;
+      padding: 0.25rem 0.5rem;
       border-radius: 6px;
-      font-family: 'Courier New', monospace;
+      font-family: 'Consolas', monospace;
+      color: #79c0ff;
     }
-    
-    input, textarea, button, select {
+
+    pre {
+      background: #0d1117;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      margin: 0.8rem 0;
+    }
+
+    .try {
+      background: rgba(88, 166, 255, 0.12);
+      border: 1px dashed var(--accent);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .try h4 {
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    input, textarea, button {
       width: 100%;
       padding: 0.9rem;
-      margin: 0.6rem 0;
-      border-radius: 10px;
-      border: 1px solid #444;
-      background: rgba(255,255,255,0.06);
-      color: white;
+      margin: 0.7rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #0d1117;
+      color: var(--text);
       font-size: 1.05rem;
     }
-    
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(255,51,102,0.3);
-    }
-    
+
     button {
-      background: var(--primary);
+      background: var(--accent);
       border: none;
-      color: white;
+      color: #000;
       font-weight: bold;
       cursor: pointer;
     }
-    
+
     button:hover {
-      background: #ff6699;
+      background: #79c0ff;
     }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.95rem;
+
+    ul, ol {
+      padding-left: 1.8rem;
+      margin: 0.8rem 0;
     }
-    
-    th, td {
-      padding: 0.9rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    li {
+      margin-bottom: 0.5rem;
     }
-    
-    th {
-      background: rgba(255,51,102,0.15);
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
     }
-    
-    audio, video {
-      width: 100%;
-      max-width: 100%;
-      margin: 1rem 0;
-    }
-    
-    /* Mobil uyum */
-    @media (max-width: 768px) {
-      h1 { font-size: 1.6rem; }
-      h2 { font-size: 1.45rem; }
-      nav ul { flex-direction: column; gap: 0.6rem; }
-      nav a { width: 100%; text-align: center; }
-      .container { padding: 1rem 5%; }
-      .card { padding: 1.2rem; }
-    }
-    
+
     footer {
       text-align: center;
-      padding: 2.5rem 1rem;
-      background: rgba(0,0,0,0.6);
-      margin-top: 3rem;
+      padding: 2rem 0;
       font-size: 0.95rem;
+      color: #8b949e;
+    }
+
+    /* Küçük ekranlarda yazı boyutunu koru, boşlukları sıkı tut */
+    @media (min-width: 500px) {
+      body { font-size: 1.15rem; padding: 1.5rem; }
+      h1 { font-size: 2.3rem; }
+      .card { padding: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>HTML5 Cheatsheet</h1>
-  <nav>
-    <ul>
-      <li><a href="#lists">Listeler</a></li>
-      <li><a href="#links">Linkler</a></li>
-      <li><a href="#forms">Formlar</a></li>
-      <li><a href="#tables">Tablolar</a></li>
-      <li><a href="#media">Medya</a></li>
-      <li><a href="#misc">Diğer</a></li>
-    </ul>
-  </nav>
+  <h1>HTML Öğren & Egzersiz Yap</h1>
+  <p>Telefonundan çalış, her bölümde dene!</p>
 </header>
 
-<div class="container">
+<section class="card">
+  <h2>1. Başlık Etiketleri</h2>
+  <p><code>&lt;h1&gt;</code> → en büyük başlık<br>
+     <code>&lt;h6&gt;</code> → en küçük başlık</p>
+  
+  <pre><code>&lt;h1&gt;Bu en önemli başlık&lt;/h1&gt;
+&lt;h3&gt;Bu orta seviye başlık&lt;/h3&gt;
+&lt;h6&gt;Bu çok küçük başlık&lt;/h6&gt;</code></pre>
 
-  <section id="lists" class="card">
-    <h2>1. Listeler</h2>
-    <h3>Sırasız Liste</h3>
-    <ul>
-      <li>Mobil uyumlu tasarım</li>
-      <li>Büyük dokunmatik alanlar</li>
-      <li>Kolay okunur yazı tipi</li>
-      <li>Koyu tema + neon vurgular</li>
-    </ul>
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>Aşağıdaki alana kendi adını farklı başlık seviyeleriyle yaz:</p>
+    <textarea rows="6" placeholder="Buraya yaz... \n&lt;h1&gt;Adın&lt;/h1&gt; \n&lt;h2&gt;Soyadın&lt;/h2&gt; ..."></textarea>
+  </div>
+</section>
 
-    <h3>Sıralı Liste</h3>
-    <ol>
-      <li>Sayfayı aç</li>
-      <li>Aşağı kaydır</li>
-      <li>Formu doldur</li>
-      <li>Bana mail at!</li>
-    </ol>
-  </section>
+<section class="card">
+  <h2>2. Paragraf & Metin Biçimlendirme</h2>
+  <p><code>&lt;p&gt;</code> → paragraf<br>
+     <code>&lt;strong&gt;</code> → kalın<br>
+     <code>&lt;em&gt;</code> → eğik<br>
+     <code>&lt;br&gt;</code> → satır atla</p>
+  
+  <pre><code>&lt;p&gt;Bu bir paragraf.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Önemli kısım&lt;/strong&gt; normal kısım.&lt;/p&gt;</code></pre>
 
-  <section id="links" class="card">
-    <h2>2. Linkler & Navigasyon</h2>
-    <p>
-      <a href="https://github.com" target="_blank">GitHub (yeni sekme)</a><br><br>
-      <a href="mailto:berk83272@gmail.com?subject=Selam%20Berk%20HTML%20sayfandan%20geliyorum&body=Merhaba%20Berk%2C%0A%0ASayfanı%20gördüm%20ve%20şunu%20söylemek%20istiyorum...">📧 Bana mail at (berk83272@gmail.com)</a>
-    </p>
-  </section>
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>Bir paragraf yaz ve içinde en az 2 kelimeyi kalın yap:</p>
+    <textarea rows="5" placeholder="Buraya paragraf yaz..."></textarea>
+  </div>
+</section>
 
-  <section id="forms" class="card">
-    <h2>3. Formlar & Input Türleri</h2>
-    
-    <form action="#" method="post">
-      <label for="ad">Adın:</label>
-      <input type="text" id="ad" placeholder="Adını yaz..." required>
+<section class="card">
+  <h2>3. Listeler (Sıralı & Sırasız)</h2>
+  <ul>
+    <li><code>&lt;ul&gt;</code> → sırasız (madde işaretli)</li>
+    <li><code>&lt;ol&gt;</code> → sıralı (numaralı)</li>
+    <li><code>&lt;li&gt;</code> → her bir madde</li>
+  </ul>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" placeholder="ornek@email.com">
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>En sevdiğin 4 şeyi sıralı liste olarak yaz:</p>
+    <textarea rows="6" placeholder="&lt;ol&gt;\n  &lt;li&gt;1. şey&lt;/li&gt;\n  ...\n&lt;/ol&gt;"></textarea>
+  </div>
+</section>
 
-      <label for="sifre">Şifre:</label>
-      <input type="password" id="sifre">
+<section class="card">
+  <h2>4. Link Verme</h2>
+  <p><code>&lt;a href="..."&gt;</code> → tıklanabilir link<br>
+     <code>target="_blank"</code> → yeni sekmede aç</p>
+  
+  <pre><code>&lt;a href="https://google.com"&gt;Google'a git&lt;/a&gt;</code></pre>
 
-      <label>Cinsiyet:</label><br>
-      <input type="radio" name="cinsiyet" id="erkek" value="erkek">
-      <label for="erkek">Erkek</label><br>
-      <input type="radio" name="cinsiyet" id="kadin" value="kadin">
-      <label for="kadin">Kadın</label><br><br>
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>En sevdiğin YouTube kanalına link ver:</p>
+    <textarea rows="3" placeholder="&lt;a href=&quot;...&quot; target=&quot;_blank&quot;&gt;Kanal Adı&lt;/a&gt;"></textarea>
+  </div>
+</section>
 
-      <label>Hobiler:</label><br>
-      <input type="checkbox" id="kod" name="hobi" value="kod">
-      <label for="kod">Kod yazmak</label><br>
-      <input type="checkbox" id="müzik" name="hobi" value="müzik">
-      <label for="müzik">Müzik</label><br><br>
+<section class="card">
+  <h2>5. Basit Form Elemanları</h2>
+  <p><code>&lt;input type="text"&gt;</code> → yazı alanı<br>
+     <code>&lt;input type="email"&gt;</code> → e-posta<br>
+     <code>&lt;button&gt;</code> → düğme</p>
 
-      <label for="mesaj">Mesajın:</label>
-      <textarea id="mesaj" rows="5" placeholder="Bana bir şeyler yaz..."></textarea>
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>Aşağıdaki gibi basit bir giriş formu kodla:</p>
+    <textarea rows="8" placeholder="&lt;form&gt;\n  &lt;label&gt;Adın:&lt;/label&gt;\n  &lt;input type=&quot;text&quot;&gt;\n  ...\n&lt;/form&gt;"></textarea>
+  </div>
+</section>
 
-      <button type="submit">Gönder</button>
-      <button type="reset">Temizle</button>
-    </form>
-  </section>
+<section class="card">
+  <h2>6. Resim Ekleme</h2>
+  <p><code>&lt;img src="..." alt="..."&gt;</code><br>
+  alt yazmak çok önemli (erişilebilirlik + SEO)</p>
 
-  <section id="tables" class="card">
-    <h2>4. Tablolar</h2>
-    <table>
-      <tr><th>Etiket</th><th>Açıklama</th></tr>
-      <tr><td>&lt;form&gt;</td><td>Form oluşturur</td></tr>
-      <tr><td>&lt;input&gt;</td><td>Girdi alanı</td></tr>
-      <tr><td>&lt;textarea&gt;</td><td>Çok satırlı metin</td></tr>
-      <tr><td>&lt;button&gt;</td><td>Tıklanabilir düğme</td></tr>
-    </table>
-  </section>
+  <div class="try">
+    <h4>Şimdi Sen Dene:</h4>
+    <p>Bir internetteki resmin kodunu yaz:</p>
+    <textarea rows="3" placeholder="&lt;img src=&quot;https://...&quot; alt=&quot;açıklama&quot;&gt;"></textarea>
+  </div>
+</section>
 
-  <section id="media" class="card">
-    <h2>5. Multimedya</h2>
-    <audio controls>
-      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-    </audio>
-
-    <video controls>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-    </video>
-  </section>
-
-  <section class="card">
-    <h2>6. Diğer</h2>
-    <hr>
-    <p><span style="color:var(--primary); font-weight:bold;">span</span> → satır içi stil</p>
-    <p><small>Bu sayfa tamamen mobil öncelikli tasarlandı • İstanbul 2026</small></p>
-  </section>
-
-</div>
+<hr>
 
 <footer>
-  <p>Made with <span style="color:var(--primary);">♥</span> by Berk</p>
-  <p><a href="mailto:berk83272@gmail.com?subject=HTML%20sayfası%20hakkında">Geri bildirim / Soru / Öneri → Mail at</a></p>
+  <p>Her gün 10-15 dk burada egzersiz yap → HTML'i çok hızlı kaparsın!</p>
+  <p>Telefonundan rahatça çalış • 2026 Berk</p>
 </footer>
 
 </body>
-        </html>
+</html>
