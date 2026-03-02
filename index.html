@@ -1,385 +1,372 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magical Night Flowers</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML5 Mega Cheatsheet & Berk'in Kaotik Sayfası</title>
+  
+  <style>
+    :root {
+      --primary: #ff3366;
+      --dark: #0f0f1a;
+      --light: #f8f9fa;
+      --gray: #aaaaaa;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f1a 0%, #1a0033 100%);
+      color: var(--light);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 2rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,51,102,0.3);
+    }
+    
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 1rem 0 0;
+    }
+    
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      transition: all 0.3s;
+    }
+    
+    nav a:hover {
+      background: rgba(255,51,102,0.15);
+      transform: translateY(-2px);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+    
+    h1, h2, h3 {
+      color: var(--primary);
+      text-shadow: 0 2px 10px rgba(255,51,102,0.4);
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,51,102,0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    
+    .highlight {
+      background: rgba(255,51,102,0.1);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-family: 'Courier New', monospace;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    th {
+      background: rgba(255,51,102,0.15);
+    }
+    
+    input, textarea, select, button {
+      padding: 0.8rem 1.2rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #444;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 1rem;
+    }
+    
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255,51,102,0.3);
+    }
+    
+    button {
+      background: var(--primary);
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    button:hover {
+      background: #ff6699;
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: rgba(0,0,0,0.6);
+      margin-top: 4rem;
+      border-top: 1px solid rgba(255,51,102,0.2);
+    }
+  </style>
 </head>
+<body>
 
-<body class="not-loaded">
-    <div class="night"></div>
-    <div class="moon"></div>
-    <div class="aurora"></div>
+<header>
+  <h1 style="margin:0; text-align:center;">HTML5 Mega Cheatsheet</h1>
+  <nav>
+    <ul>
+      <li><a href="#lists">Listeler</a></li>
+      <li><a href="#links">Link & Nav</a></li>
+      <li><a href="#forms">Formlar</a></li>
+      <li><a href="#tables">Tablolar</a></li>
+      <li><a href="#media">Multimedya</a></li>
+      <li><a href="#misc">Diğer</a></li>
+      <li><a href="#playground">Deneme Alanı</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <!-- Love Bar Game -->
-    <div class="game-container">
-        <h3 class="game-title">Sevgi Barı</h3>
-        <div class="attempts-display">Kalan Hak: <span id="attempts-count">3</span></div>
-        <div class="bar-holder">
-            <div class="love-bar-wrapper">
-                <div class="love-bar-fill" id="love-bar-fill"></div>
-            </div>
-            <div class="record-marker" id="record-marker">
-                <span class="record-label">Rekor 🏆</span>
-            </div>
-        </div>
-        <div class="message-display" id="message-display">Başlamak için dokun!</div>
-    </div>
+<div class="container">
 
-    <div class="flowers">
-        <div class="flower flower--1">
-            <div class="flower__leafs flower__leafs--1">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+  <!-- LİSTELER -->
+  <section id="lists" class="card">
+    <h2>1. Listeler (Lists)</h2>
+    
+    <h3>Sırasız Liste (Unordered List) → &lt;ul&gt; & &lt;li&gt;</h3>
+    <ul>
+      <li>Kahve içmek</li>
+      <li>Kod yazmak</li>
+      <li>Gece 03:00'de anime izlemek</li>
+      <li>HTML ezberlemek (zoraki)</li>
+      <li>Yine kahve içmek</li>
+    </ul>
 
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+    <h3>Sıralı Liste (Ordered List) → &lt;ol&gt; & &lt;li&gt;</h3>
+    <ol type="I" start="5">
+      <li>Uyan</li>
+      <li>Kahve koy</li>
+      <li>VS Code aç</li>
+      <li>Hata al</li>
+      <li>Stack Overflow'a gir</li>
+      <li>Kopyala-yapıştır</li>
+      <li>Çalıştı san → tekrar hata</li>
+    </ol>
+  </section>
 
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-                <div class="flower__line__leaf flower__line__leaf--5"></div>
-                <div class="flower__line__leaf flower__line__leaf--6"></div>
-            </div>
-        </div>
 
-        <div class="flower flower--2">
-            <div class="flower__leafs flower__leafs--2">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+  <!-- LİNKLER & NAVİGASYON -->
+  <section id="links" class="card">
+    <h2>2. Linkler & Navigasyon</h2>
+    
+    <p>
+      Normal link: <a href="https://github.com">GitHub'a git</a><br>
+      Yeni sekmede açılan link: <a href="https://youtube.com" target="_blank">YouTube (yeni sekme)</a><br>
+      Mail link: <a href="mailto:berk@kaos.com?subject=Selam%20Berk">Bana mail at!</a>
+    </p>
 
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+    <h3>&lt;nav&gt; örneği (zaten yukarıda kullandık)</h3>
+    <nav style="background:#222; padding:1rem; border-radius:12px;">
+      <a href="#forms" style="color:#ff99cc; margin-right:1.5rem;">Formlara</a>
+      <a href="#tables" style="color:#ff99cc; margin-right:1.5rem;">Tablolara</a>
+      <a href="#media" style="color:#ff99cc;">Multimedya</a>
+    </nav>
+  </section>
 
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-            </div>
-        </div>
 
-        <div class="flower flower--3">
-            <div class="flower__leafs flower__leafs--3">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+  <!-- FORMLAR & INPUT TÜRLERİ -->
+  <section id="forms" class="card">
+    <h2>3. Formlar & Input Türleri</h2>
+    
+    <form action="#" method="post" class="card" style="background:rgba(0,0,0,0.3);">
+      
+      <label for="isim">Ad Soyad:</label><br>
+      <input type="text" id="isim" name="isim" placeholder="Berk Y." required><br>
 
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+      <label for="sifre">Şifre (güçlü olsun):</label><br>
+      <input type="password" id="sifre" name="sifre" minlength="8"><br>
 
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-            </div>
-        </div>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" placeholder="ornek@domain.com"><br>
 
-        <!-- New Pink Flower -->
-        <div class="flower flower--4">
-            <div class="flower__leafs flower__leafs--2">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+      <label for="tel">Telefon:</label><br>
+      <input type="tel" id="tel" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"><br>
 
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+      <label for="yas">Yaş:</label><br>
+      <input type="number" id="yas" name="yas" min="13" max="100" value="25"><br>
 
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-            </div>
-        </div>
+      <label>Cinsiyet:</label><br>
+      <input type="radio" name="cinsiyet" value="erkek" id="erkek">
+      <label for="erkek">Erkek</label>
+      <input type="radio" name="cinsiyet" value="kadin" id="kadin">
+      <label for="kadin">Kadın</label>
+      <input type="radio" name="cinsiyet" value="diger" id="diger">
+      <label for="diger">Diğer / Söylemek istemiyorum</label><br><br>
 
-        <!-- New Purple Flower -->
-        <div class="flower flower--5">
-            <div class="flower__leafs flower__leafs--3">
-                <div class="flower__leaf flower__leaf--1"></div>
-                <div class="flower__leaf flower__leaf--2"></div>
-                <div class="flower__leaf flower__leaf--3"></div>
-                <div class="flower__leaf flower__leaf--4"></div>
-                <div class="flower__white-circle"></div>
+      <label>Hobiler (birden fazla seç):</label><br>
+      <input type="checkbox" name="hobi" value="kod" id="kod">
+      <label for="kod">Kod yazmak</label><br>
+      <input type="checkbox" name="hobi" value="muzik" id="muzik">
+      <label for="muzik">Müzik dinlemek / üretmek</label><br>
+      <input type="checkbox" name="hobi" value="anime" id="anime">
+      <label for="anime">Anime / Manga</label><br><br>
 
-                <div class="flower__light flower__light--1"></div>
-                <div class="flower__light flower__light--2"></div>
-                <div class="flower__light flower__light--3"></div>
-                <div class="flower__light flower__light--4"></div>
-                <div class="flower__light flower__light--5"></div>
-                <div class="flower__light flower__light--6"></div>
-                <div class="flower__light flower__light--7"></div>
-                <div class="flower__light flower__light--8"></div>
+      <label for="aralik">Kaos seviyesi (1-10):</label><br>
+      <input type="range" id="aralik" name="kaos" min="1" max="10" value="8"><br>
+      <output name="kaosdegeri">8</output><br><br>
 
-            </div>
-            <div class="flower__line">
-                <div class="flower__line__leaf flower__line__leaf--1"></div>
-                <div class="flower__line__leaf flower__line__leaf--2"></div>
-                <div class="flower__line__leaf flower__line__leaf--3"></div>
-                <div class="flower__line__leaf flower__line__leaf--4"></div>
-            </div>
-        </div>
-        <div class="fireflies"></div>
+      <label for="dosya">CV veya meme yükle:</label><br>
+      <input type="file" id="dosya" name="dosya"><br><br>
 
-        <div class="grow-ans" style="--d:1.2s">
-            <div class="flower__g-long">
-                <div class="flower__g-long__top"></div>
-                <div class="flower__g-long__bottom"></div>
-            </div>
-        </div>
+      <label for="tarih">Doğum tarihin:</label><br>
+      <input type="date" id="tarih"><br><br>
 
-        <div class="growing-grass">
-            <div class="flower__grass flower__grass--1">
-                <div class="flower__grass--top"></div>
-                <div class="flower__grass--bottom"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-                <div class="flower__grass__overlay"></div>
-            </div>
-        </div>
+      <label for="saat">En verimli olduğun saat:</label><br>
+      <input type="time" id="saat" value="03:00"><br><br>
 
-        <div class="growing-grass">
-            <div class="flower__grass flower__grass--2">
-                <div class="flower__grass--top"></div>
-                <div class="flower__grass--bottom"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-                <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-                <div class="flower__grass__overlay"></div>
-            </div>
-        </div>
+      <label for="arama">Hızlı arama:</label><br>
+      <input type="search" id="arama" placeholder="Hata kodunu yaz..."><br><br>
 
-        <div class="grow-ans" style="--d:2.4s">
-            <div class="flower__g-right flower__g-right--1">
-                <div class="leaf"></div>
-            </div>
-        </div>
+      <label for="mesaj">Kendine not bırak:</label><br>
+      <textarea name="mesaj" id="mesaj" rows="5" cols="50" placeholder="Bugün yine uykusuz kaldım..."></textarea><br><br>
 
-        <div class="grow-ans" style="--d:2.8s">
-            <div class="flower__g-right flower__g-right--2">
-                <div class="leaf"></div>
-            </div>
-        </div>
+      <button type="submit">Gönder (ama hiçbir yere gitmiyor)</button>
+      <button type="reset">Tümünü temizle</button>
+      <input type="image" src="https://via.placeholder.com/120x40/FF3366/fff?text=SUBMIT" alt="Gönder" width="120">
+    </form>
+  </section>
 
-        <div class="grow-ans" style="--d:2.8s">
-            <div class="flower__g-front">
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
-                    <div class="flower__g-front__leaf"></div>
-                </div>
-                <div class="flower__g-front__line"></div>
-            </div>
-        </div>
 
-        <div class="grow-ans" style="--d:3.2s">
-            <div class="flower__g-fr">
-                <div class="leaf"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
-                <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
-            </div>
-        </div>
+  <!-- TABLOLAR -->
+  <section id="tables" class="card">
+    <h2>4. Tablolar</h2>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Etiket</th>
+          <th>Açıklama</th>
+          <th>Kullanım Örneği</th>
+          <th>Önem</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>&lt;table&gt;</code></td>
+          <td>Ana tablo kapsayıcısı</td>
+          <td>Tüm tabloyu sarar</td>
+          <td>★★★</td>
+        </tr>
+        <tr>
+          <td><code>&lt;tr&gt;</code></td>
+          <td>Tablo satırı</td>
+          <td>Her satır için bir tane</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td><code>&lt;th&gt;</code></td>
+          <td>Başlık hücresi</td>
+          <td>Kalın ve ortalı olur</td>
+          <td>★★★</td>
+        </tr>
+        <tr>
+          <td><code>&lt;td&gt;</code></td>
+          <td>Normal veri hücresi</td>
+          <td>İçine her şey koyabilirsin</td>
+          <td>★★★★★</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="text-align:center;">HTML tabloları hâlâ yaşıyor! (2026)</td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
 
-        <div class="long-g long-g--0">
-            <div class="grow-ans" style="--d:3s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:2.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.4s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
 
-        <div class="long-g long-g--1">
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.8s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:4s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
+  <!-- MULTIMEDYA -->
+  <section id="media" class="card">
+    <h2>5. Multimedya</h2>
+    
+    <h3>Ses (audio)</h3>
+    <audio controls>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Tarayıcın ses elementini desteklemiyor.
+    </audio>
 
-        <div class="long-g long-g--2">
-            <div class="grow-ans" style="--d:4s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.4s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
+    <h3>Video (video + source)</h3>
+    <video controls width="500" poster="https://picsum.photos/500/280?random=1">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Video oynatılamıyor.
+    </video>
+  </section>
 
-        <div class="long-g long-g--3">
-            <div class="grow-ans" style="--d:4s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:3s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
 
-        <div class="long-g long-g--4">
-            <div class="grow-ans" style="--d:4s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:3s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
+  <!-- MISC + DENEME ALANI -->
+  <section id="misc" class="card">
+    <h2>6. Diğer Önemli Etiketler</h2>
+    
+    <hr>
+    
+    <p>
+      <span style="color:var(--primary); font-weight:bold;">Span</span> → inline stil için harika
+    </p>
+    
+    <p style="background:linear-gradient(to right, #ff3366, #aa00ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+      Gradient yazı efekti (CSS ile)
+    </p>
 
-        <div class="long-g long-g--5">
-            <div class="grow-ans" style="--d:4s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:3s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
+    <footer style="margin-top:3rem; padding:2rem; background:rgba(0,0,0,0.4); border-radius:16px;">
+      <p>Made with chaos &hearts; — Berk 2026</p>
+      <p><small>Bu sayfa sadece eğitim amaçlı abartılı uzunlukta yapılmıştır.</small></p>
+    </footer>
+  </section>
 
-        <div class="long-g long-g--6">
-            <div class="grow-ans" style="--d:4.2s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.4s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.6s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:4.8s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
 
-        <div class="long-g long-g--7">
-            <div class="grow-ans" style="--d:3s">
-                <div class="leaf leaf--0"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.2s">
-                <div class="leaf leaf--1"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.5s">
-                <div class="leaf leaf--2"></div>
-            </div>
-            <div class="grow-ans" style="--d:3.6s">
-                <div class="leaf leaf--3"></div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <!-- PLAYGROUND -->
+  <section id="playground" class="card">
+    <h2>7. Kaotik Deneme Alanı</h2>
+    
+    <p>Buraya istediğin HTML'i yapıştırıp deneyebilirsin (tarayıcıda F12 → Elements kısmından):</p>
+    
+    <pre style="background:#111; padding:1.5rem; border-radius:12px; overflow-x:auto;">
+&lt;h1 style="color:#ff3366;"&gt;Merhaba Kaos&lt;/h1&gt;
+&lt;marquee&gt;HTML hâlâ eğlenceli mi?&lt;/marquee&gt;
+&lt;blink&gt;Yanlışlıkla çalışırsa üzülme&lt;/blink&gt;
+    </pre>
+  </section>
+
+</div>
+
 </body>
-
-                                                         </html>
+          </html>
